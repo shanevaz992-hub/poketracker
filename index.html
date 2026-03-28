@@ -7,36 +7,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Changa+One&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* 🔥 THE THEME ENGINE 🔥 */
+        /* THE THEME ENGINE */
         :root {
-            /* DARK MODE (Default) */
-            --pokedex-red: #E3350D; 
-            --pokedex-dark: #8B0000;
-            --pokemon-yellow: #FFCC00; 
-            --pokemon-blue: #3B4CCA;
-            --bg-deep: #0a0a1a; 
-            --text-main: #f3f3f3; 
-            --text-muted: #b0b0c0;
-            --glass-bg: rgba(15, 20, 40, 0.8);
-            --glass-border: var(--pokemon-blue);
+            --pokedex-red: #E3350D; --pokedex-dark: #8B0000;
+            --pokemon-yellow: #FFCC00; --pokemon-blue: #3B4CCA;
+            --bg-deep: #0a0a1a; --text-main: #f3f3f3; --text-muted: #b0b0c0;
+            --glass-bg: rgba(15, 20, 40, 0.8); --glass-border: var(--pokemon-blue);
             --modal-bg: var(--bg-deep);
-            /* Dark Mode Background Art */
             --bg-image: linear-gradient(to bottom, rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 0.95)), url('https://image.tmdb.org/t/p/original/rOuGm07PxAhjKqlkfcFMNOcsboV.jpg');
         }
 
-        /* LIGHT MODE OVERRIDES */
         body.light-mode {
-            --pokedex-red: #E3350D; 
-            --pokedex-dark: #CC0000;
-            --pokemon-yellow: #FFB300; 
-            --pokemon-blue: #2a3b96;
-            --bg-deep: #f0f4f8; 
-            --text-main: #1a1a2e; 
-            --text-muted: #4a4a6a;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(59, 76, 202, 0.3);
+            --pokedex-red: #E3350D; --pokedex-dark: #CC0000;
+            --pokemon-yellow: #FFB300; --pokemon-blue: #2a3b96;
+            --bg-deep: #f0f4f8; --text-main: #1a1a2e; --text-muted: #4a4a6a;
+            --glass-bg: rgba(255, 255, 255, 0.85); --glass-border: rgba(59, 76, 202, 0.3);
             --modal-bg: #ffffff;
-            /* Light Mode Background Art */
             --bg-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.9)), url('https://image.tmdb.org/t/p/original/7kMvXENt8T0A0pWab2nB2gq8s3z.jpg');
         }
         
@@ -89,7 +75,7 @@
         .glass-card {
             background: var(--glass-bg); border: 2px solid var(--glass-border);
             border-radius: 12px; padding: 15px; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            width: 100%; max-width: 280px; box-sizing: border-box; display: flex; flex-direction: column;
+            width: 100%; max-width: 300px; box-sizing: border-box; display: flex; flex-direction: column;
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
         }
         .glass-card:hover { transform: translateY(-5px); border-color: var(--pokemon-yellow); box-shadow: 0 10px 30px rgba(255, 204, 0, 0.4); }
@@ -108,7 +94,7 @@
         body.light-mode .tracked-active { border-color: #00b359 !important; color: #00b359 !important; background: rgba(0, 179, 89, 0.1) !important; }
 
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
-        .modal-content { background: var(--modal-bg); border: 4px solid var(--pokedex-red); width: 95%; max-width: 900px; height: 85vh; border-radius: 12px; padding: 30px; overflow-y: auto; position: relative; transition: 0.3s; }
+        .modal-content { background: var(--modal-bg); border: 4px solid var(--pokedex-red); width: 95%; max-width: 900px; height: 85vh; border-radius: 12px; padding: 30px; overflow-y: auto; position: relative; transition: 0.3s; box-sizing: border-box;}
         .close-btn { position: absolute; top: 15px; right: 20px; background: var(--pokedex-red); color: white; border: none; font-size: 24px; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; font-weight: bold; }
         
         .modal-season-overview { font-size: 14px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 20px;}
@@ -117,7 +103,7 @@
         .ep-img { width: 160px; height: 90px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(0,0,0,0.2); background: #000; }
         .ep-info { flex: 1; }
         .ep-info h4 { margin: 0 0 5px 0; font-size: 16px; color: var(--text-main); }
-        .ep-info p { margin: 0 0 10px 0; font-size: 12px; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .ep-info p { margin: 0 0 10px 0; font-size: 12px; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
         
         .ep-track-btn { background: transparent; color: var(--text-muted); border: 1px solid rgba(128, 128, 128, 0.5); padding: 5px 12px; border-radius: 4px; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 600; transition: 0.3s;}
         .ep-tracked-active { background: rgba(0, 255, 127, 0.15); border-color: #00FF7F; color: #00FF7F; }
@@ -127,6 +113,34 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .status-text { text-align: center; width: 100%; color: var(--pokemon-blue); font-size: 18px; font-weight: bold; }
         body:not(.light-mode) .status-text { color: var(--pokemon-yellow); }
+
+        /* 🔥 MOBILE RESPONSIVE CSS (MEDIA QUERIES) 🔥 */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .logo { font-size: 24px; }
+            .theme-btn { font-size: 12px; padding: 6px 12px; }
+            
+            .hero { padding: 30px 20px 10px 20px; }
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 14px; }
+            
+            .timeline-section { padding: 0 20px 50px 20px; }
+            .card-container { gap: 20px; grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); }
+            .glass-card { max-width: 100%; }
+            .card-img { height: 280px; }
+            
+            .continue-banner { flex-direction: column; text-align: center; padding: 15px; width: 85%; }
+            .continue-img { width: 100%; height: auto; aspect-ratio: 16/9; }
+            .continue-title { font-size: 20px; }
+            
+            .modal-content { width: 100%; height: 90vh; padding: 20px; border-radius: 12px 12px 0 0; border: none; border-top: 4px solid var(--pokedex-red); align-self: flex-end;}
+            #modal-title { font-size: 24px !important; margin-right: 30px; }
+            .close-btn { top: 10px; right: 10px; width: 35px; height: 35px; font-size: 20px; }
+            
+            .episode-card { flex-direction: column; text-align: left; padding: 12px; gap: 10px; }
+            .ep-img { width: 100%; height: auto; aspect-ratio: 16/9; }
+            .ep-track-btn { width: 100%; padding: 10px; font-size: 13px; }
+        }
     </style>
 </head>
 <body>
@@ -165,196 +179,11 @@
         const TMDB_API_KEY = "5ad4368fe7c85ead64dd0461f1e4b402"; 
         const POKEMON_TMDB_ID = 60572; 
 
-        // 🔥 LIGHT/DARK MODE LOGIC 🔥
+        // Light/Dark Theme Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
-        
-        // Check local storage to see what they picked last time
         if (localStorage.getItem('pokeTheme') === 'light') {
             document.body.classList.add('light-mode');
             themeToggleBtn.innerText = '🌙 Dark Mode';
         }
 
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            if (document.body.classList.contains('light-mode')) {
-                localStorage.setItem('pokeTheme', 'light');
-                themeToggleBtn.innerText = '🌙 Dark Mode';
-            } else {
-                localStorage.setItem('pokeTheme', 'dark');
-                themeToggleBtn.innerText = '☀️ Light Mode';
-            }
-        });
-
-        // Tracker Arrays
-        let myTrackedShows = [];
-        let myTrackedEpisodes = [];
-
-        try {
-            const rawShows = JSON.parse(localStorage.getItem('pokeTrackerData'));
-            const rawEpisodes = JSON.parse(localStorage.getItem('pokeTrackerEpisodes'));
-            myTrackedShows = Array.isArray(rawShows) ? rawShows : [];
-            myTrackedEpisodes = Array.isArray(rawEpisodes) ? rawEpisodes : [];
-        } catch (error) {
-            localStorage.removeItem('pokeTrackerData');
-            localStorage.removeItem('pokeTrackerEpisodes');
-        }
-
-        async function loadContinueWatching() {
-            const lastWatched = JSON.parse(localStorage.getItem('pokeLastWatched'));
-            const bannerContainer = document.getElementById('continue-banner-container');
-            
-            if (!lastWatched) {
-                bannerContainer.style.display = 'none';
-                return;
-            }
-
-            try {
-                const response = await fetch(`https://api.themoviedb.org/3/tv/${POKEMON_TMDB_ID}/season/${lastWatched.s}?api_key=${TMDB_API_KEY}&language=en-US`);
-                const seasonData = await response.json();
-                const ep = seasonData.episodes.find(e => e.episode_number === lastWatched.e);
-                
-                if (ep) {
-                    const imgUrl = ep.still_path ? `https://image.tmdb.org/t/p/w500${ep.still_path}` : 'https://placehold.co/500x280/0a0a1a/FFCC00?text=No+Image';
-                    const safeTitle = seasonData.name.replace(/'/g, "\\'");
-
-                    bannerContainer.innerHTML = `
-                        <div class="continue-banner" style="display: flex;">
-                            <img src="${imgUrl}" class="continue-img" alt="Episode Thumbnail">
-                            <div class="continue-info">
-                                <div class="continue-tag">Jump Back In • Last Watched</div>
-                                <h2 class="continue-title">Season ${lastWatched.s}, Ep ${ep.episode_number}: ${ep.name}</h2>
-                                <p class="continue-desc">${ep.overview || "No description available."}</p>
-                                <button class="resume-btn" onclick="openModal(${lastWatched.s}, '${safeTitle}')">▶ Open Season Menu</button>
-                            </div>
-                        </div>
-                    `;
-                    bannerContainer.style.display = 'block';
-                }
-            } catch (error) { console.error("Could not load Continue Watching data."); }
-        }
-
-        async function loadAllSeasons() {
-            const container = document.getElementById('timeline-container');
-            
-            try {
-                const response = await fetch(`https://api.themoviedb.org/3/tv/${POKEMON_TMDB_ID}?api_key=${TMDB_API_KEY}&language=en-US`);
-                const showData = await response.json();
-                
-                container.innerHTML = ""; 
-                const validSeasons = showData.seasons.filter(s => s.season_number > 0 && s.season_number <= 25);
-                
-                validSeasons.forEach(season => {
-                    const isAlreadyTracked = myTrackedShows.includes(season.season_number);
-                    const trackBtnClass = isAlreadyTracked ? "action-btn tracked-active" : "action-btn";
-                    const trackBtnText = isAlreadyTracked ? "✅ Season Watched" : "Mark as Watched";
-                    
-                    const posterUrl = season.poster_path ? `https://image.tmdb.org/t/p/w500${season.poster_path}` : `https://placehold.co/500x750/0f0c20/FFCC00?text=Season+${season.season_number}`;
-                    const year = season.air_date ? season.air_date.substring(0, 4) : "Unknown Year";
-                    const safeTitle = season.name.replace(/'/g, "\\'");
-                    const overviewText = season.overview ? season.overview : "Follow Ash and Pikachu as they journey through this exciting chapter of their Pokémon adventure!";
-
-                    container.innerHTML += `
-                        <div class="glass-card">
-                            <img src="${posterUrl}" alt="${season.name}" class="card-img" loading="lazy">
-                            <div class="tags">${season.episode_count} EPISODES • ${year}</div>
-                            <h3 class="card-title" title="${season.name}">${season.name}</h3>
-                            <p class="season-desc">${overviewText}</p>
-                            <div class="btn-group">
-                                <button class="action-btn view-episodes" onclick="openModal(${season.season_number}, '${safeTitle}')">View All Episodes</button>
-                                <button class="${trackBtnClass}" id="btn-${season.season_number}" onclick="trackShow(${season.season_number})">${trackBtnText}</button>
-                            </div>
-                        </div>
-                    `;
-                });
-            } catch (error) {
-                container.innerHTML = `<p style="color:var(--pokedex-red); text-align:center; width:100%;">Failed to load database. Please check your internet connection.</p>`;
-            }
-        }
-
-        function trackShow(showId) {
-            const button = document.getElementById(`btn-${showId}`);
-            if (!myTrackedShows.includes(showId)) {
-                myTrackedShows.push(showId);
-                button.className = "action-btn tracked-active"; button.innerHTML = "✅ Season Watched";
-            } else {
-                myTrackedShows = myTrackedShows.filter(id => id !== showId);
-                button.className = "action-btn"; button.innerHTML = "Mark as Watched";
-            }
-            localStorage.setItem('pokeTrackerData', JSON.stringify(myTrackedShows));
-        }
-
-        async function openModal(seasonId, seasonTitle) {
-            document.getElementById('episode-modal').style.display = 'flex';
-            document.getElementById('modal-title').innerText = `${seasonTitle}`;
-            
-            // Toggle title color depending on theme
-            if(!document.body.classList.contains('light-mode')) {
-                document.getElementById('modal-title').style.color = 'var(--pokemon-yellow)';
-            } else {
-                document.getElementById('modal-title').style.color = 'var(--pokemon-blue)';
-            }
-            
-            document.getElementById('modal-overview').innerText = ""; 
-            
-            const episodeContainer = document.getElementById('modal-episode-list');
-            episodeContainer.innerHTML = '<div class="loader"></div><p class="status-text">Fetching episodes...</p>'; 
-
-            try {
-                const response = await fetch(`https://api.themoviedb.org/3/tv/${POKEMON_TMDB_ID}/season/${seasonId}?api_key=${TMDB_API_KEY}&language=en-US`);
-                const data = await response.json();
-
-                document.getElementById('modal-overview').innerText = data.overview ? data.overview : "No official season description available from TMDB.";
-                episodeContainer.innerHTML = ""; 
-
-                if (data.episodes && data.episodes.length > 0) {
-                    data.episodes.forEach(ep => {
-                        const episodeId = `${seasonId}-${ep.episode_number}`; 
-                        const isEpWatched = myTrackedEpisodes.includes(episodeId);
-                        const epBtnClass = isEpWatched ? "ep-track-btn ep-tracked-active" : "ep-track-btn";
-                        const epBtnText = isEpWatched ? "✅ Watched" : "Mark as Watched";
-                        
-                        const imgUrl = ep.still_path ? `https://image.tmdb.org/t/p/w300${ep.still_path}` : 'https://placehold.co/300x170/0a0a1a/FFCC00?text=No+Image';
-                        const description = ep.overview ? ep.overview : "No description available in TMDB database.";
-
-                        episodeContainer.innerHTML += `
-                            <div class="episode-card">
-                                <img src="${imgUrl}" class="ep-img" alt="Episode Image" loading="lazy">
-                                <div class="ep-info">
-                                    <h4>Ep ${ep.episode_number}: ${ep.name}</h4>
-                                    <p>${description}</p>
-                                    <button class="${epBtnClass}" id="ep-btn-${episodeId}" onclick="trackEpisode(${seasonId}, ${ep.episode_number})">${epBtnText}</button>
-                                </div>
-                            </div>
-                        `;
-                    });
-                } else {
-                    episodeContainer.innerHTML = `<p style="color: var(--pokedex-red);">No episodes found in the database for this season.</p>`;
-                }
-            } catch (error) {
-                episodeContainer.innerHTML = `<p style="color: var(--pokedex-red);">Failed to connect to TMDB to fetch episodes.</p>`;
-            }
-        }
-
-        function closeModal() { document.getElementById('episode-modal').style.display = 'none'; }
-
-        function trackEpisode(seasonId, epNum) {
-            const episodeId = `${seasonId}-${epNum}`;
-            const button = document.getElementById(`ep-btn-${episodeId}`);
-
-            if (!myTrackedEpisodes.includes(episodeId)) {
-                myTrackedEpisodes.push(episodeId);
-                button.className = "ep-track-btn ep-tracked-active"; button.innerHTML = "✅ Watched";
-                localStorage.setItem('pokeLastWatched', JSON.stringify({s: seasonId, e: epNum}));
-                loadContinueWatching();
-            } else {
-                myTrackedEpisodes = myTrackedEpisodes.filter(id => id !== episodeId);
-                button.className = "ep-track-btn"; button.innerHTML = "Mark as Watched";
-            }
-            localStorage.setItem('pokeTrackerEpisodes', JSON.stringify(myTrackedEpisodes));
-        }
-
-        loadContinueWatching();
-        loadAllSeasons();
-    </script>
-</body>
-</html>
+        themeToggleBtn.addEventListener('click',
